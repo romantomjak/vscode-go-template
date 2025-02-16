@@ -1,6 +1,6 @@
 # Go template syntax highlighting
 
-[VS Code extension]() to add syntax highlighting for [Go template files](https://pkg.go.dev/text/template).
+[VS Code extension](https://marketplace.visualstudio.com/items?itemName=romantomjak.go-template) to add syntax highlighting for [Go template files](https://pkg.go.dev/text/template).
 
 ## Features
 
