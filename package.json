@@ -2,7 +2,7 @@
   "name": "go-template",
   "displayName": "Go Template",
   "description": "Syntax highlighting for Go template files",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/romantomjak/vscode-go-template/blob/main/README.md",
   "repository": {
     "type": "git",
@@ -35,12 +35,20 @@
     "golang"
   ],
   "contributes": {
-    "languages": [{
-      "id": "go-template",
-      "aliases": ["Go Template"],
-      "extensions": [".tmpl",".gohtml",".tpl"],
-      "configuration": "./language-configuration.json"
-    }],
+    "languages": [
+      {
+        "id": "go-template",
+        "aliases": [
+          "Go Template"
+        ],
+        "extensions": [
+          ".tmpl",
+          ".gohtml",
+          ".tpl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
     "grammars": [
       {
         "language": "go-template",
