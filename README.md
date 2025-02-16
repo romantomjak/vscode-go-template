@@ -28,6 +28,12 @@ If you wish to work on an existing issue, please leave a comment saying so, as s
 * Verify that syntax highlighting works and that the language configuration settings are working
 * Reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes
 
+## Publishing
+
+* update changelog.md
+* vsce login <publisher id>
+* vsce publish <minor|patch>
+
 ## License
 
 MIT
