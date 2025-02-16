@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <article class="flex flex-row mb-3">
+    <div class="grow pr-1">
+      <div class="text-xs text-gray-500 pb-1">
+        <a class="font-medium tracking-tight" href="{{ $entry.AuthorLink }}" target="_blank" rel="author">{{ $entry.Author }}</a> in <a class="tracking-tight" href="{{ $entry.CategoryLink }}">{{ $entry.Category }}</a>
+      </div>
+      <a href="{{ $entry.Link }}" target="_blank" rel="bookmark">
+        <h1 class="text-base leading-snug font-bold text-gray-900 break-words">{{ $entry.Title }}</h1>
+      </a>
+      <span style="width: {{ .Cycle.Progress }}%"></span>
+      <div class="text-xs text-gray-500 pt-1">
+        <time datetime="{{ $entry.Published }}" title="{{ $entry.Published }}">{{ $entry.Published }} ago</time> &ndash; {{ $entry.Views }} views
+      </div>
+    </div>
+  </article>
+</body>
+</html>

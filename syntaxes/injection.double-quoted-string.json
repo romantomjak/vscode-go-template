@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Go Template in HTML attributes",
+    "scopeName": "source.go-template.injection.double-quoted-string",
+    "injectionSelector": "L:string.quoted.double.html",
+    "patterns": [
+        {
+            "include": "source.go-template"
+        }
+    ]
+}

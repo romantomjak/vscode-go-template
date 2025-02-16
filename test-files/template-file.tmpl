@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+{{ define "content" }}
+<p>some paragraph</p>
+{{ end }}
+
+{{ range $entry := .Entries }}
+<article class="flex flex-row mb-3">
+  <div class="grow pr-1">
+    <div class="text-xs text-gray-500 pb-1">
+      <a class="font-medium tracking-tight" href="{{ $entry.AuthorLink }}" target="_blank" rel="author">{{ $entry.Author }}</a> in <a class="tracking-tight" href="{{ $entry.CategoryLink }}">{{ $entry.Category }}</a>
+    </div>
+    <a href="{{ $entry.Link }}" target="_blank" rel="bookmark">
+      <h1 class="text-base leading-snug font-bold text-gray-900 break-words">{{ $entry.Title }}</h1>
+    </a>
+    <span style="width: {{ .Cycle.Progress }}%"></span>
+    <div class="text-xs text-gray-500 pt-1">
+      <time datetime="{{ $entry.Published }}" title="{{ $entry.Published }}">{{ $entry.Published }} ago</time> &ndash; {{ $entry.Views }} views
+    </div>
+  </div>
+</article>
+<!--
+<div>html comment in go template file</div>
+-->
+{{ end }}
+
+{{/* a
+comment
+over
+multiple
+lines */}}
+
+{{- /* one line comment */ -}}
+
+{{ with .Entries }}
+    {{ . }}
+{{ end }}
+
+{{ if gt (len .Entries) 0 }}
+    {{ $entry := index .Entries 0 }}
+    {{ $first = slice .Entries 0 1 }}
+    <p>{{ $first.Title }}</p>
+{{ end }}
+
+{{ if gt (len $entry.Title) 0 }}
+    <h1>{{ $entry.Title }}</h1>
+{{ end }}
+
+</body>
+</html

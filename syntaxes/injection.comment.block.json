@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Go Template in HTML comments",
+    "scopeName": "source.go-template.injection.comment.block",
+    "injectionSelector": "L:comment.block.html",
+    "patterns": [
+        {
+            "include": "source.go-template"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Go Template in string literals",
+    "scopeName": "source.go-template.injection.string.quoted.raw",
+    "injectionSelector": "L:string.quoted.raw",
+    "patterns": [
+        {
+            "include": "source.go-template"
+        }
+    ]
+}

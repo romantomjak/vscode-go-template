@@ -1,0 +1,73 @@
+{
+  "name": "go-template",
+  "displayName": "Go Template",
+  "description": "Syntax highlighting for Go template files",
+  "version": "0.0.1",
+  "homepage": "https://github.com/romantomjak/vscode-go-template/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romantomjak/vscode-go-template"
+  },
+  "bugs": {
+    "url": "https://github.com/romantomjak/vscode-go-template/issues"
+  },
+  "author": {
+    "name": "Roman Tomjak"
+  },
+  "publisher": "romantomjak",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "icon": "logo.png",
+  "galleryBanner": {
+    "color": "#F2F2F2",
+    "theme": "light"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "go",
+    "template",
+    "syntax",
+    "highlighting",
+    "golang"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "go-template",
+      "aliases": ["Go Template"],
+      "extensions": [".tmpl",".gohtml",".tpl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [
+      {
+        "language": "go-template",
+        "scopeName": "source.go-template",
+        "path": "./syntaxes/go-template.json"
+      },
+      {
+        "scopeName": "source.go-template.injection.comment.block",
+        "path": "./syntaxes/injection.comment.block.json",
+        "injectTo": [
+          "source.go-template"
+        ]
+      },
+      {
+        "scopeName": "source.go-template.injection.double-quoted-string",
+        "path": "./syntaxes/injection.double-quoted-string.json",
+        "injectTo": [
+          "source.go-template"
+        ]
+      },
+      {
+        "scopeName": "source.go-template.injection.string.quoted.raw",
+        "path": "./syntaxes/injection.string.quoted.raw.json",
+        "injectTo": [
+          "source.go"
+        ]
+      }
+    ]
+  }
+}

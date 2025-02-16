@@ -1,0 +1,135 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Go Template",
+	"scopeName": "source.go-template",
+	"patterns": [
+		{
+            "include": "text.html.basic"
+        },
+		{
+			"begin": "\\{\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.section.embedded.begin.go-template"
+				}
+			},
+			"end": "\\}\\}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.embedded.end.go-template"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expression"
+				}
+			]
+		}
+	],
+	"repository": {
+		"string_escaped_char": {
+			"patterns": [
+				{
+					"match": "\\\\([0-7]{3}|[abfnrtv\\\\'\"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})",
+					"name": "constant.character.escape.go-template"
+				},
+				{
+					"match": "\\\\[^0-7xuUabfnrtv\\'\"]",
+					"name": "invalid.illegal.unknown-escape.go-template"
+				}
+			]
+		},
+		"string_placeholder": {
+			"patterns": [
+				{
+					"match": "(?x)%(\\d+\\$)?[#0\\- +']*[,;:_]?((-?\\d+)|\\*(-?\\d+\\$)?)?(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)?[diouxXDOUeEfFgGaAcCsSqpnvtTbyYhHmMzZ%]",
+					"name": "constant.other.placeholder.go-template"
+				},
+				{
+					"match": "%",
+					"name": "invalid.illegal.placeholder.go-template"
+				}
+			]
+		},
+		"expression": {
+			"patterns": [
+				{
+					"match": ":?=",
+					"name": "keyword.operator.assignment.go-template"
+				},
+				{
+					"match": "\\|",
+					"name": "keyword.operator.pipe.go-template"
+				},
+				{
+					"match": "\\.\\w*",
+					"name": "variable.other.go-template"
+				},
+				{
+					"match": "\\$\\w*",
+					"name": "variable.other.assignment.go-template"
+				},
+				{
+					"match": "[0-9]+",
+					"name": "constant.numeric.decimal"
+				},
+				{
+					"match": "\\b(if|else|range|break|continue|template|with|end|nil|define|block)\\b",
+					"name": "keyword.control.go-template"
+				},
+				{
+					"match": "\\b(and|call|html|index|slice|js|len|not|or|print|printf|println|urlquery|eq|ne|lt|le|gt|ge)\\b",
+					"name": "support.function.builtin.go-template"
+				},
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.go-template"
+				},
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.go-template"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.go-template"
+						}
+					},
+					"name": "string.quoted.double.go-template",
+					"patterns": [
+						{
+							"include": "#string_placeholder"
+						},
+						{
+							"include": "#string_escaped_char"
+						}
+					]
+				},
+				{
+					"begin": "`",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.go-template"
+						}
+					},
+					"end": "`",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.go-template"
+						}
+					},
+					"name": "string.quoted.raw.go-template",
+					"patterns": [
+						{
+							"include": "#string_placeholder"
+						}
+					]
+				}
+			]
+		}
+	}
+}
